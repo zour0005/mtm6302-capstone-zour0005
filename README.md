@@ -1,1 +1,3 @@
-# mtm6302-capstone-zour0005
+Name: Mahmoud Zourob
+Student Number: 040991432
+Project: APOD
