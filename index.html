@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
     <title>API Template</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
+    <div id="content"></div>
     <h1>
         NASA API
     </h1>
-    <input id="searchTerm" type="text" placeholder="Enter search term"/>
-    <button id="search">
-        Search
-    </button>
-    <br>
-    <div id="content">
+    <input id="dataSearch" type="text" placeholder="Enter a date..."/>
+    <button id = "submit" onclick="call()">Search</button>
+    <p id = "description"></p>
+    <img id = "spacepic" src="" alt="">
 
     </div>
     <script src=script.js"></script>

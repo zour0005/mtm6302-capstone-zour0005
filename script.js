@@ -1,20 +1,23 @@
-let searchButton = document.querySelector(#search")
-
-searchButton.addEventListListener("click", ()=>{
-    consple.log("clicked")
-    sendApiRequest()   
-})
-
-    async function sedApiRequest(){
-    let API_KEY = "4FvNMmt2WTHcRMddgo7JPdwpeKVIc2yMQBSuxPIc"
-    let response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY=${API_KEY}`);
-        console.log(response)
-        let data = await response.json()
-        console.log(data)    
-    }
+function getDate() {
+    return document.getElementById('dataSearch').value;
 }
 
-function useApiData(data){
-    document.querySelector("#content").innerHTML += data.explanation
-    document.querySelector("#content").innerHTML += `<img src="${data.url}">`
+async function call() {
+    let request = '';
+    fetch("./secrets.json").then(response => {
+        return response.json();
+    }).then(async function (myJSON) {
+        request = (`https://api.nasa.gov/planetary/apod?date=`) + getDate() + '&api_key=' + ("4FvNMmt2WTHcRMddgo7JPdwpeKVIc2yMQBSuxPIc")
+        await (await fetch(response)).json();
+    }).then(function (myJSON) {
+
+        //Desc
+        p = document.getElementById("description");
+        p.innerHTML = myJSON.explanation;
+
+        //Img
+        img = document.getElementById("spacePic");
+        img.src = myJSON.url;
+    })
+});
 }
